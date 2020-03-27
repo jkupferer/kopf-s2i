@@ -14,7 +14,10 @@ jobs:
     - uses: actions/checkout@master
     - name: Get the version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/}
+        echo ::set-output name=FULL_VERSION::${VERSION}
+        echo ::set-output name=MINOR_VERSION::${VERSION%.*}
     - name: Publish My Image to Quay
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -23,4 +26,4 @@ jobs:
         password: ${{ secrets.QUAY_PASSWORD }}
         registry: quay.io
         dockerfile: Dockerfile
-        tags: ${{ steps.get_version.outputs.VERSION }},latest
+        tags: ${{ steps.get_version.outputs.FULL_VERSION }},${{ steps.get_version.outputs.MINOR_VERSION }},latest
