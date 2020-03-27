@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+# Copy files to target directories.
+
+shopt -s dotglob
+
+mv /tmp/src/* . || true
+mv operator /opt/app-root/
+rm -rf /tmp/src
+
+if [[ -s requirements.txt ]]; then
+    pip3 install --upgrade -r requirements.txt
+fi
+
+if [[ -s kopf-build.sh ]]; then
+    . kopf-build.sh
+fi
+
+if [[ -s kopf-opt.sh ]]; then
+    mv kopf-opt.sh /opt/app-root/kopf-opt.sh
+fi
+
+# Fix up permissions.
+
+fix-permissions /opt/app-root
