@@ -2,8 +2,7 @@ FROM registry.access.redhat.com/ubi8:latest
   
 MAINTAINER Johnathan Kupferer <jkupfere@redhat.com>
 
-ENV PYTHON_VERSION=3.8.2 \
-    KOPF_VERSION=0.26
+ENV PYTHON_VERSION=3.8.2
 
 LABEL io.k8s.description="Python Kopf - Kubernetes Operator Framework" \
       io.k8s.display-name="Kopf Operator" \
@@ -24,7 +23,7 @@ RUN yum install -y \
       nss_wrapper \
     && \
     /opt/app-root/install/python3-install.sh && \
-    pip3 install --upgrade kopf==${KOPF_VERSION} && \
+    pip3 install --upgrade -r /opt/app-root/install/requirements.txt && \
     chmod --recursive g+w /usr/local && \
     chown --recursive 1001:0 /usr/local && \
     mkdir -p /opt/app-root/nss && \
