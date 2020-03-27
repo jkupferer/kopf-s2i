@@ -8,20 +8,20 @@ set -eo pipefail
 
 shopt -s dotglob
 
-mv /tmp/src/* . || true
-mv operator /opt/app-root/
+mv /tmp/src/* /opt/app-root/src || true
+mv /opt/app-root/src/operator /opt/app-root/
 rm -rf /tmp/src
 
-if [[ -s requirements.txt ]]; then
-    pip3 install --upgrade -r requirements.txt
+if [[ -s /opt/app-root/src/requirements.txt ]]; then
+    pip3 install --upgrade -r /opt/app-root/src/requirements.txt
 fi
 
-if [[ -s kopf-build.sh ]]; then
-    . kopf-build.sh
+if [[ -s /opt/app-root/src/kopf-build.sh ]]; then
+    . /opt/app-root/src/kopf-build.sh
 fi
 
-if [[ -s kopf-opt.sh ]]; then
-    mv kopf-opt.sh /opt/app-root/kopf-opt.sh
+if [[ -s /opt/app-root/src/kopf-opt.sh ]]; then
+    mv /opt/app-root/src/kopf-opt.sh /opt/app-root/kopf-opt.sh
 fi
 
 # Fix up permissions.

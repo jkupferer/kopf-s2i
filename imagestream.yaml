@@ -11,8 +11,9 @@ spec:
     local: false
   tags:
   - annotations:
-      description: >-
-        Build and run operators with Python kopf. https://kopf.readthedocs.io/
+      description: |-
+        Build and run operators with Python Kopf 0.28.
+        https://kopf.readthedocs.io/
       iconClass: icon-python
       openshift.io/display-name: Python Kopf
       sampleRepo: https://github.com/jkupferer/kopf-s2i-example.git
@@ -24,5 +25,23 @@ spec:
       name: quay.io/jkupferer/kopf-s2i:v0.28
     importPolicy: {}
     name: "0.28"
+    referencePolicy:
+      type: Local
+  - annotations:
+      description: |-
+        Build and run operators with Python kopf.
+        https://kopf.readthedocs.io/
+
+        WARNING: By selecting this tag, your application will automatically update to use the latest version of Python Kopf available, including major version updates.
+      iconClass: icon-python
+      openshift.io/display-name: Python Kopf
+      sampleRepo: https://github.com/jkupferer/kopf-s2i-example.git
+      supports: kopf,python
+      tags: builder,python,kopf
+    from:
+      kind: DockerImage
+      name: quay.io/jkupferer/kopf-s2i:latest
+    importPolicy: {}
+    name: latest
     referencePolicy:
       type: Local
