@@ -8,7 +8,7 @@ on:
     - 'v[0-9]*'
 jobs:
   build:
-    if: github.repository == 'jkupferer/openshift-deployment-operator'
+    if: github.repository == 'jkupferer/kopf-s2i'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -18,7 +18,7 @@ jobs:
     - name: Publish My Image to Quay
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: jkupferer/openshift-deployment-operator
+        name: jkupferer/kopf-s2i
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
         registry: quay.io
