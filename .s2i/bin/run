@@ -41,4 +41,4 @@ cd /opt/app-root/operator
 # Unset KOPF_VERSION to prevent it from being interpreted by kopf command
 unset KOPF_VERSION
 
-exec kopf run --liveness=http://:8080/healthz ${KOPF_OPTIONS} ${KOPF_OPERATORS:-operator.py}
+exec kopf run --liveness=http://0.0.0.0:8080/healthz ${KOPF_OPTIONS} ${KOPF_OPERATORS:-operator.py}
