@@ -13,7 +13,8 @@ mv /opt/app-root/src/operator /opt/app-root/
 rm -rf /tmp/src
 
 if [[ -s /opt/app-root/src/requirements.txt ]]; then
-    pip3 install --upgrade -r /opt/app-root/src/requirements.txt
+    pip3 install --upgrade --cache-dir /tmp/.pip-cache -r /opt/app-root/src/requirements.txt
+    rm -rf /tmp/.pip-cache
 fi
 
 if [[ -s /opt/app-root/src/kopf-build.sh ]]; then
