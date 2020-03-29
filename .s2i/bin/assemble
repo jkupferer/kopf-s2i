@@ -12,7 +12,7 @@ shopt -s dotglob
 mkdir /opt/app-root/src -p
 cp --preserve=mode --recursive /tmp/src/operator /opt/app-root/
 rm -rf /tmp/src/operator
-cp --preserve=mode /tmp/src/* /opt/app-root/src/
+cp --preserve=mode --recursive /tmp/src/* /opt/app-root/src/
 rm -rf /tmp/src
 
 if [[ -s /opt/app-root/src/requirements.txt ]]; then
