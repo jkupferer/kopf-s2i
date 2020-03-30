@@ -16,13 +16,13 @@ spec:
         https://kopf.readthedocs.io/
       iconClass: icon-python
       openshift.io/display-name: Python Kopf
-      sampleRepo: https://github.com/jkupferer/kopf-s2i-example.git
+      sampleRepo: https://github.com/jkupferer/python-kopf-s2i-example.git
       supports: kopf:0.28,kopf,python:3.8,python
       tags: builder,python,kopf
       version: "0.28"
     from:
       kind: DockerImage
-      name: quay.io/jkupferer/kopf-s2i:v0.28
+      name: quay.io/jkupferer/python-kopf-s2i:v0.28
     importPolicy: {}
     name: "0.28"
     referencePolicy:
@@ -35,12 +35,12 @@ spec:
         WARNING: By selecting this tag, your application will automatically update to use the latest version of Python Kopf available, including major version updates.
       iconClass: icon-python
       openshift.io/display-name: Python Kopf
-      sampleRepo: https://github.com/jkupferer/kopf-s2i-example.git
+      sampleRepo: https://github.com/jkupferer/python-kopf-s2i-example.git
       supports: kopf,python
       tags: builder,python,kopf
     from:
       kind: DockerImage
-      name: quay.io/jkupferer/kopf-s2i:latest
+      name: quay.io/jkupferer/python-kopf-s2i:latest
     importPolicy: {}
     name: latest
     referencePolicy:

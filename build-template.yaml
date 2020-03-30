@@ -4,15 +4,15 @@ kind: Template
 metadata:
   annotations:
     description: Build resources for the openshift-deployment-operator
-  name: kopf-s2i-build
+  name: python-kopf-s2i-build
 
 parameters:
 - name: FROM_IMAGE
   value: registry.access.redhat.com/ubi8/s2i-core:latest
 - name: GIT_REPO
-  value: https://github.com/jkupferer/kopf-s2i.git
+  value: https://github.com/jkupferer/python-kopf-s2i.git
 - name: NAME
-  value: kopf-s2i
+  value: python-kopf-s2i
 
 objects:
 - apiVersion: image.openshift.io/v1

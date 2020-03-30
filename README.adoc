@@ -13,5 +13,5 @@ oc process --local -f build-template.yaml | oc apply -f -
 . Build events operator image
 +
 ------------------------------------------------------------
-oc start-build kopf-s2i --from-dir=. -F
+oc start-build python-kopf-s2i --from-dir=. -F
 ------------------------------------------------------------

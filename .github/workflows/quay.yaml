@@ -8,7 +8,7 @@ on:
     - 'v[0-9]*'
 jobs:
   build:
-    if: github.repository == 'jkupferer/kopf-s2i'
+    if: github.repository == 'jkupferer/python-kopf-s2i'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -21,7 +21,7 @@ jobs:
     - name: Publish My Image to Quay
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: jkupferer/kopf-s2i
+        name: jkupferer/python-kopf-s2i
         username: ${{ secrets.QUAY_USERNAME }}
         password: ${{ secrets.QUAY_PASSWORD }}
         registry: quay.io

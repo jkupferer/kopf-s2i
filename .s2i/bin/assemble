@@ -20,10 +20,6 @@ if [[ -s /opt/app-root/src/requirements.txt ]]; then
     rm -rf /tmp/.pip-cache
 fi
 
-if [[ -s /opt/app-root/src/kopf-build.sh ]]; then
-    . /opt/app-root/src/kopf-build.sh
-fi
-
 if [[ -s /opt/app-root/src/kopf-opt.sh ]]; then
     mv /opt/app-root/src/kopf-opt.sh /opt/app-root/kopf-opt.sh
 fi
