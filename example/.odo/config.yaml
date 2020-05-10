@@ -1,0 +1,11 @@
+kind: LocalConfig
+apiversion: odo.openshift.io/v1alpha1
+ComponentSettings:
+  Type: python-kopf
+  SourceLocation: ./
+  SourceType: local
+  Ports:
+  - "8080"
+  Application: app
+  Project: user0-test
+  Name: python-kopf-kopf-s2i-exa-jkte
