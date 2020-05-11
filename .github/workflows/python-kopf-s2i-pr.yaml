@@ -21,7 +21,7 @@ jobs:
               exit 1
           fi
           echo ::set-output name=VERSION::$VERSION
-          sed -i -e "s/^FROM .*/FROM ${{ env.image_name }}:${VERSION}" ${context}/example/Dockerfile
+          sed -i -e "s/^FROM .*/FROM ${{ env.image_name }}:${VERSION}/" ${context}/example/Dockerfile
       - name: Build s2i image
         uses: docker/build-push-action@v1
         with:
