@@ -2,7 +2,7 @@ name: s2i-python-kopf-pr
 on:
   pull_request:
     paths:
-      - ./**
+      - '**'
 jobs:
   test:
     env:
