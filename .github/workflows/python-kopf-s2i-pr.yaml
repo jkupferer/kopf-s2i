@@ -39,16 +39,16 @@ jobs:
           tags: ${{ steps.check_version.outputs.VERSION }}
       - name: Test image
         run: |
-          IMAGE="${IMAGE_NAME}:${{ steps.check_version.outputs.VERSION }}"
+          EXAMPLE_IMAGE="${IMAGE_NAME}-example:${{ steps.check_version.outputs.VERSION }}"
 
           echo "Checking kopf version..."
-          KOPF_VERSION="$(docker run --entrypoint '/bin/sh' $IMAGE -c 'kopf --version')"
+          KOPF_VERSION="$(docker run --entrypoint '/bin/sh' $EXAMPLE_IMAGE -c 'kopf --version')"
           if [[ "$KOPF_VERSION" != 'kopf, version ${{ steps.check_version.outputs.MINOR_VERSION }}' ]]; then
             echo "$KOPF_VERSION not expected ${{ steps.check_version.outputs.MINOR_VERSION }}"
           fi
 
           echo "Checking example operator.py..."
-          docker run --entrypoint '/bin/sh' $IMAGE -c 'python3 -m py_compile /opt/app-root/operator/operator.py'
+          docker run --entrypoint '/bin/sh' $EXAMPLE_IMAGE -c 'python3 -m py_compile /opt/app-root/operator/operator.py'
 
           echo "Check example requirements were installed..."
-          docker run --entrypoint '/bin/sh' $IMAGE -c 'python3 -c "import yaml"'
+          docker run --entrypoint '/bin/sh' $EXAMPLE_IMAGE -c 'python3 -c "import yaml"'
