@@ -19,7 +19,7 @@ jobs:
         echo ::set-output name=FULL_VERSION::${VERSION}
         echo ::set-output name=MINOR_VERSION::${VERSION%.*}
     - name: Publish My Image to Quay
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: jkupferer/python-kopf-s2i
         username: ${{ secrets.QUAY_USERNAME }}
